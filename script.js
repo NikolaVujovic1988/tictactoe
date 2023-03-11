@@ -5,8 +5,12 @@ let currentShape = 'circle';
 function fillShape(id) {
     if (currentShape == 'circle') {
         currentShape = 'cross';
+        document.getElementById('player1').classList.add('playerInactive');
+        document.getElementById('player2').classList.remove('playerInactive');
     } else { 
         currentShape = 'circle';
+        document.getElementById('player1').classList.remove('playerInactive');
+        document.getElementById('player2').classList.add('playerInactive');
     }
 
     fields[id] = currentShape;
