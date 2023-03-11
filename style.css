@@ -34,12 +34,39 @@ body {
     width: 350px;
     height: 10px;
     background-color: rgba(0,0,0,0.5);
-    transform: scaleX(0.0);
+    transform: scaleX(0);
     transition: transform 225ms ease-in-out;
 }
 
 .make-vertical {
-    transform: rotate(90deg) scaleX(0.0);
+    transform: rotate(90deg) scaleX(0);
+}
+
+.lineOver {
+    position: relative;
+}
+
+.gameOver {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    object-fit: contain;
+    z-index: 22;
+    animation: zoomIn 225ms ease-in-out;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
 }
 
 tr {
@@ -76,6 +103,7 @@ tr td:last-child {
 
 table {
     border-collapse: collapse;
+    position: relative;
 }
 
 .shape {
