@@ -29,6 +29,17 @@ body {
     opacity: 0.5;
 }
 
+.horizontal-line {
+    position: absolute;
+    width: 350px;
+    height: 10px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.make-vertical {
+    transform: rotate(90deg);
+}
+
 tr {
     width: 399px;
 }
