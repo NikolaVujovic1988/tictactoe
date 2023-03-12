@@ -73,9 +73,29 @@ function checkForWin() {
     if (winner) {
         console.log('Gewonnen: ', winner);
         gameOver = true;
+        for (let i = 1; i < 8; i++) {
+            document.getElementById('line-' + i).classList.remove('d-none');
+        }
         setTimeout(function () {
             document.getElementById('gameOver').classList.remove('d-none'); 
+            document.getElementById('restartBtn').classList.remove('d-none');  
         }, 1000)
     }
 
+}
+
+function restart() {
+    gameOver = false;
+    fields = [];
+    document.getElementById('gameOver').classList.add('d-none');
+    document.getElementById('restartBtn').classList.add('d-none');  
+
+    for (let i = 1; i < 8; i++) {
+        document.getElementById('line-' + i).classList.add('d-none');
+    }
+    for (let j = 0; j < 9; j++) {
+        document.getElementById('circle-' + j).classList.add('d-none');
+        document.getElementById('cross-' + j).classList.add('d-none');
+
+    }
 }

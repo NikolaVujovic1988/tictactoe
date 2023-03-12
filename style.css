@@ -117,3 +117,21 @@ table {
 .d-none {
     display: none;
 }
+
+.restartBtn {
+    position: absolute;
+    bottom: 50px;
+    z-index: 222;
+    width: 300px;
+    height: 100px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    background-color: #1C0B7F;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+
+.restartBtn:hover {
+    background-color: #2810b2;
+
+}
