@@ -129,9 +129,31 @@ table {
     cursor: pointer;
     background-color: #1C0B7F;
     border: 1px solid rgba(0,0,0,0.5);
+    animation: zoomIn 225ms ease-in-out;
 }
 
 .restartBtn:hover {
     background-color: #2810b2;
+}
 
+.forceLandscape {
+    display: none;
+}
+
+@media screen and (orientation:portrait) {
+    .forceLandscape {
+        display: flex;
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (orientation:landscape) {
+    .forceLandscape {
+        display: none;
+    }
+    
 }
