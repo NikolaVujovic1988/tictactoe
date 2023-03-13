@@ -56,11 +56,13 @@ body {
 
 .player1 {
     margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .players div {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 

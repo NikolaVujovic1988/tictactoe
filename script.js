@@ -23,17 +23,17 @@ function render() {
 
 function returnContent() {
     return `
-    <img src="./img/game-over.png" class="gameOver d-none" id="gameOver">
+    <button class="gameOver d-none" id="winnerBtn"> won!</button>
     <button onclick="restart()" class="restartBtn d-none" id="restartBtn">RESTART</button>
 
     <div class="players">
         <div id="player1" class="player1">
             <img id="player1" class="" src="./img/cross.png" alt="kreuz">
-            Player 1
+            <p>${firstPlayer}</p>
         </div>
-        <div class="playerInactive" id="player2">
+        <div class="playerInactive player1" id="player2">
             <img class="" src="./img/circle.png" alt="kreis">
-            Player 2
+            <p>${secondPlayer}</p>
         </div>
     </div>
 
@@ -105,12 +105,12 @@ function returnContent() {
 function fillShape(id) {
     if (!fields[id] && !gameOver) {
 
-        if (currentShape == 'circle') {
-            currentShape = 'cross';
+        if (currentShape == firstPlayer) {
+            currentShape = secondPlayer;
             document.getElementById('player1').classList.add('playerInactive');
             document.getElementById('player2').classList.remove('playerInactive');
         } else {
-            currentShape = 'circle';
+            currentShape = firstPlayer;
             document.getElementById('player1').classList.remove('playerInactive');
             document.getElementById('player2').classList.add('playerInactive');
         }
@@ -122,10 +122,10 @@ function fillShape(id) {
 
 function draw() {
     for (let i = 0; i < fields.length; i++) {
-        if (fields[i] == 'cross') {
+        if (fields[i] == firstPlayer) {
             document.getElementById('cross-' + i).classList.remove('d-none');
         }
-        if (fields[i] == 'circle') {
+        if (fields[i] == secondPlayer) {
             document.getElementById('circle-' + i).classList.remove('d-none');
         }
     }
@@ -174,11 +174,16 @@ function checkForWin() {
             document.getElementById('line-' + i).classList.remove('d-none');
         }
         setTimeout(function () {
-            document.getElementById('gameOver').classList.remove('d-none'); 
+            document.getElementById('winnerBtn').classList.remove('d-none');
             document.getElementById('restartBtn').classList.remove('d-none');  
         }, 1000)
     }
+    showWinner(winner);
     noWinner();
+}
+
+function showWinner(winner) {
+    document.getElementById('winnerBtn').innerHTML = `${winner} WON!!!`;
 }
 
 function noWinner() {
@@ -192,7 +197,8 @@ function noWinner() {
 function restart() {
     gameOver = false;
     fields = [];
-    document.getElementById('gameOver').classList.add('d-none');
+    winner = [];
+    document.getElementById('winnerBtn').classList.add('d-none');
     document.getElementById('restartBtn').classList.add('d-none');  
 
     for (let index = 1; index < 9; index++) {
