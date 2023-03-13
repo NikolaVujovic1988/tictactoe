@@ -4,6 +4,8 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    margin: 0;
+    background-color: khaki;
 }
 
 .players {
@@ -38,7 +40,7 @@ body {
     position: absolute;
     width: 280px;
     height: 10px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     transform: scaleX(0);
     transition: transform 225ms ease-in-out;
 }
