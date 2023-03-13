@@ -183,7 +183,7 @@ function checkForWin() {
 }
 
 function showWinner(winner) {
-    document.getElementById('winnerBtn').innerHTML = `${winner} WON!!!`;
+    document.getElementById('winnerBtn').innerHTML = `${winner}<br> WON!!!`;
 }
 
 function noWinner() {
