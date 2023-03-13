@@ -8,8 +8,13 @@ body {
 
 .players {
     display: flex;
+    flex-direction: column;
     margin-bottom: 32px;
     font-size: 32px;
+}
+
+.player1 {
+    margin-bottom: 16px;
 }
 
 .players div {
@@ -31,7 +36,7 @@ body {
 
 .horizontal-line {
     position: absolute;
-    width: 350px;
+    width: 280px;
     height: 10px;
     background-color: rgba(0,0,0,0.5);
     transform: scaleX(0);
@@ -70,13 +75,13 @@ body {
 }
 
 tr {
-    width: 399px;
+    width: 300px;
 }
 
 td {
     position: relative;
-    width: 133px;
-    height: 133px;
+    width: 100px;
+    height: 100px;
     border: 5px solid black;
     cursor: pointer;
 }
@@ -108,10 +113,10 @@ table {
 
 .shape {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    top: 26px;
-    left: 26px;
+    width: 70%;
+    height: 70%;
+    top: 15px;
+    left: 15px;
 }
 
 .d-none {
@@ -134,26 +139,4 @@ table {
 
 .restartBtn:hover {
     background-color: #2810b2;
-}
-
-.forceLandscape {
-    display: none;
-}
-
-@media screen and (orientation:portrait) {
-    .forceLandscape {
-        display: flex;
-        width: 300px;
-        height: 300px;
-        justify-content: center;
-        align-items: center;
-    }
-    
-}
-
-@media screen and (orientation:landscape) {
-    .forceLandscape {
-        display: none;
-    }
-    
 }

@@ -98,7 +98,7 @@ function restart() {
     document.getElementById('restartBtn').classList.add('d-none');  
 
     for (let index = 1; index < 9; index++) {
-        document.getElementById('line-' + index).classList.add('d-none');
+        document.getElementById('line-' + index).style.transform = 'scaleX(0.0)';
     }
     for (let j = 0; j < 9; j++) {
         document.getElementById('circle-' + j).classList.add('d-none');
