@@ -8,6 +8,45 @@ body {
     background-color: khaki;
 }
 
+.playerNames {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 80%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(242, 230, 124);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    z-index: 999;
+    border: 1px solid whitesmoke;
+}
+
+.firstPlayer {
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.playerInput {
+    margin: 8px;
+    outline: transparent;
+    padding: 4px;
+}
+
+.playerBtn {
+    margin: 8px;
+    background-color: rgb(244, 247, 250);
+    cursor: pointer;
+    border: none;
+    color: darkgray;
+    height: 20px;
+}
+
+.playerBtn:hover {
+    background-color: rgb(219, 238, 254);
+}
+
 .players {
     display: flex;
     flex-direction: column;

@@ -1,8 +1,106 @@
 let fields = [];
+let firstPlayer = [];
+let secondPlayer = [];
 
 let gameOver = false;
 
 let currentShape = 'circle';
+
+function addPlayers() {
+    let player1 = document.getElementById('player1Input').value;
+    firstPlayer.push(player1);
+
+    let player2 = document.getElementById('player2Input').value;
+    secondPlayer.push(player2);
+
+    document.getElementById('playerNames').classList.add('d-none');
+    render(); 
+}
+
+function render() {
+    document.getElementById('body').innerHTML = returnContent();
+}
+
+function returnContent() {
+    return `
+    <img src="./img/game-over.png" class="gameOver d-none" id="gameOver">
+    <button onclick="restart()" class="restartBtn d-none" id="restartBtn">RESTART</button>
+
+    <div class="players">
+        <div id="player1" class="player1">
+            <img id="player1" class="" src="./img/cross.png" alt="kreuz">
+            Player 1
+        </div>
+        <div class="playerInactive" id="player2">
+            <img class="" src="./img/circle.png" alt="kreis">
+            Player 2
+        </div>
+    </div>
+
+
+
+    <table>
+        <div class="lineOver">
+            <div id="line-1" class="horizontal-line" style="top: 47px; right: -140px;"></div>
+            <div id="line-2" class="horizontal-line" style="top: 154px; right: -140px;"></div>
+            <div id="line-3" class="horizontal-line" style="top: 261px; right: -140px;"></div>
+
+            <div id="line-4" class="horizontal-line make-vertical" style="top: 152px; right: -140px;"></div>
+            <div id="line-5" class="horizontal-line make-vertical" style="top: 152px; right: -33px;"></div>
+            <div id="line-6" class="horizontal-line make-vertical" style="top: 152px; right: -246px;"></div>
+
+            <div id="line-7" class="horizontal-line make-vertical"
+                style="top: 154px; left: -140px; transform: rotate(45deg) scaleX(0);"></div>
+            <div id="line-8" class="horizontal-line make-vertical"
+                style="top: 154px; left: -140px; transform: rotate(-45deg) scaleX(0)"></div>
+
+
+            <tr>
+                <td onclick="fillShape(0)">
+                    <img id="circle-0" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-0" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+                <td onclick="fillShape(1)">
+                    <img id="circle-1" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-1" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+                <td onclick="fillShape(2)">
+                    <img id="circle-2" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-2" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(3)">
+                    <img id="circle-3" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-3" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+                <td onclick="fillShape(4)">
+                    <img id="circle-4" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-4" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+                <td onclick="fillShape(5)">
+                    <img id="circle-5" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-5" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(6)">
+                    <img id="circle-6" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-6" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+                <td onclick="fillShape(7)">
+                    <img id="circle-7" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-7" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+                <td onclick="fillShape(8)">
+                    <img id="circle-8" class="shape d-none" src="./img/circle.png" alt="kreis">
+                    <img id="cross-8" class="shape d-none" src="./img/cross.png" alt="kreuz">
+                </td>
+            </tr>
+        </div>
+    </table>
+    `;
+}
 
 function fillShape(id) {
     if (!fields[id] && !gameOver) {
