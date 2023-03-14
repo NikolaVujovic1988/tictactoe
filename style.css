@@ -120,6 +120,21 @@ body {
     }
 }
 
+.scoreTable {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    height: 10%;
+    margin-top: 10px;
+    width: 200px;
+}
+
+.scoreTableTd {
+    height: 45%;
+    text-align: center;
+}
+
 tr {
     width: 300px;
 }

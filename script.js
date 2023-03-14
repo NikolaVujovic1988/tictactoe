@@ -2,6 +2,9 @@ let fields = [];
 let firstPlayer = [];
 let secondPlayer = [];
 
+let firstPlayerWins = [];
+let secondPlayerWins = [];
+
 let gameOver = false;
 
 let currentShape = 'circle';
@@ -23,6 +26,18 @@ function render() {
 
 function returnContent() {
     return `
+
+    <table class="scoreTable">
+        <tr>
+            <td class="scoreTableTd">${firstPlayer}</td>
+            <td class="scoreTableTd">${secondPlayer}</td>
+        </tr>
+        <tr>
+            <td id="winsPlayer1" class="scoreTableTd">${firstPlayerWins.length}</td>
+            <td id="winsPlayer2" class="scoreTableTd">${secondPlayerWins.length}</td>
+        </tr>
+    </table>
+
     <button class="gameOver d-none" id="winnerBtn"> won!</button>
     <button onclick="restart()" class="restartBtn d-none" id="restartBtn">RESTART</button>
 
@@ -105,12 +120,12 @@ function returnContent() {
 function fillShape(id) {
     if (!fields[id] && !gameOver) {
 
-        if (currentShape == firstPlayer) {
-            currentShape = secondPlayer;
+        if (currentShape == secondPlayer) {
+            currentShape = firstPlayer;
             document.getElementById('player1').classList.add('playerInactive');
             document.getElementById('player2').classList.remove('playerInactive');
         } else {
-            currentShape = firstPlayer;
+            currentShape = secondPlayer;
             document.getElementById('player1').classList.remove('playerInactive');
             document.getElementById('player2').classList.add('playerInactive');
         }
@@ -184,6 +199,16 @@ function checkForWin() {
 
 function showWinner(winner) {
     document.getElementById('winnerBtn').innerHTML = `${winner}<br> WON!!!`;
+
+    if (winner == firstPlayer) {
+        firstPlayerWins.push(1);
+    } 
+    if (winner == secondPlayer) {
+        secondPlayerWins.push(1);
+    }
+
+    document.getElementById('winsPlayer1').innerHTML = `${firstPlayerWins.length}`;
+    document.getElementById('winsPlayer2').innerHTML = `${secondPlayerWins.length}`;
 }
 
 function noWinner() {
